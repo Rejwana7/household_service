@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+<h2 class="text-center mt-2">Change Password</h2>
+<div class="container">
+    <div class="row ">
+        <div class="col-md-6 col-lg-6">
+       <img class="img-fluid w-75 align-items-center" src="{% static 'password_change.jpg'%}">
+        </div>
+        <div class="col-md-6 col-lg-6">
+            
+    <form method="POST" class="w-75 mx-auto m-5" novalidate>
+        {% csrf_token %}
+    
+        <!-- {{form | crispy }}  -->
+    
+           
+        {% for fm in form %}
+    
+         {{fm.label_tag}}
+         {{fm}}
+         {{fm.errors | striptags}}
+    
+         {% endfor %}
+    
+        <button class="btn btn-warning mb-3 mt-2">Submit</button>
+    </form>
+    </div>
+    
+    </div>
+</div>
+
+{% endblock %}

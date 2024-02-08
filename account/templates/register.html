@@ -1,0 +1,73 @@
+{%extends "base.html"%}
+{% load crispy_forms_tags %}
+
+{% load static %}
+<style>
+    /* Add custom styles for medium-sized screens */
+    @media (max-width: 991.98px) {
+    .container {
+        padding-bottom: 60px; /* Adjust container padding to prevent overlap with footer */
+    }
+}
+
+    </style>
+{%block content %}
+
+
+
+<div class="container">
+
+    <section class='vh-50'>
+        <div class="container py-2 h-50">
+            <div class="row d-flex  align-items-center justify-content-center ">
+
+                <div class="col-md-6 col-lg-7 col-xl-6">
+                    {% if 'register' in request.path%}
+                    <img src="{% static 'registration.jpg'%}" class="img-fluid w-75" alt="register">
+
+                    {% elif 'login' in request.path %}
+                    <img src="{% static 'login.jpg'%}" class="img-fluid" alt="login">
+
+                    {% else %}
+                    {% endif %}
+                </div>
+
+                <div class="col-md-6 col-lg-5 col-xl-6">
+                  
+                    <h2 class="text-center text-primary fs-1 fst-italic fw-bold">{{type}}</h2>
+                    <form method="POST" class="">
+                        {% csrf_token %}
+                        <!-- 
+            {{form | crispy }} -->
+                        {% for fm in form %}
+
+                        {{fm.label_tag}}
+                        {{fm}}
+                        {{fm.errors | striptags}}
+
+
+                        {% endfor %}
+
+                        <button class="btn btn-secondary mb-3 mt-2 w-100">{{type}}</button>
+                     </form>
+                   
+                    <!-- Display login link when user is already logged in -->
+                    <p class="text-center fs-5">Already logged in? <a href="{% url 'login' %}">Login</a></p>
+                
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </section>
+</div>
+{%endblock%}

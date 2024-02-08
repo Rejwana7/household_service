@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+</head>
+<body>
+    <p>Hello {{ user.username }},</p>
+    <p>Your order with Order ID {{order.id }} has been placed successfully. But now your Order {{order.status}}</p>
+    
+    <h2>Order Details:</h2>
+    <ul>
+        <li>Service: {{ order.service.service_name }}</li>
+        <li>Quantity: {{ order.quantity }}</li>
+        <li>Total Amount: TK.{{ order.total_amount }}</li>
+       
+    </ul>
+
+    <h2>Delivery Information:</h2>
+    <p>Address: {{ order.address }}</p>
+    <p>Phone: {{ order.phone }}</p>
+
+    <p>Thank you for choosing our services!</p>
+    <p>Best regards,</p>
+    <p>From,Home Service</p>
+</body>
+</html>

@@ -1,0 +1,15 @@
+asgiref
+crispy-bootstrap5
+Django
+django-braces
+django-crispy-forms
+django-environ
+django-jquery
+django-model-utils
+django-star-ratings
+django-static-jquery
+pillow
+sqlparse
+swapper
+typing_extensions
+tzdata

@@ -1,0 +1,68 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+
+<div class="container m-5">
+ 
+    <h1>Order History</h1>
+
+      {% if all_orders %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">User</th>
+            <th scope="col">Service Image</th>
+            <th scope="col">Service Name</th>
+
+            <th scope="col"> Quantity</th>
+            <th scope="col">Total Amount</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for order in all_orders%}
+          <tr>
+           <td>{{order.user.username}}</td>
+            <td><img src="{{ order.service.image.url }}" alt="{{ order.service.service_name }}" class="img-fluid w-25"></td>
+            <td>{{order.service.service_name}}</td>
+            <td>{{order.quantity}}</td>
+            <td>{{order.total_amount}}</td>
+            <td>{{order.status}}</td>
+            <td>
+             <form method="POST" action="{% url 'approve_order' order.id%}" >
+              {% csrf_token%}
+              {% if order.status == 'PENDING' %}
+              <button type="submit">Approve</button>
+              {% elif order.status == 'APPROVED' %}
+              <button type="button" disabled>Approved</button>
+              {% elif order.status == 'CANCELLED' %}
+               <button type="submit">Re-Approve</button>
+               {% endif %}
+             </form>
+             {% if order.status == 'PENDING' %}
+             <form method="POST" action="{% url 'cancel_order' order.id%}" class="mt-2">
+              {% csrf_token%}
+              <button type="submit">Cancel</button>
+             {% endif %}
+             </form>
+         
+            </td>
+          </tr>
+         
+          {% endfor %}
+        </tbody>
+      </table>
+    
+   
+
+    {% else %}
+    <p class="text-center">No orders found.</p>
+{% endif %}
+</div>    
+
+
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+<!-- make_admin.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+  <h2>Make User Admin</h2>
+  <p>Username: {{ user.username }}</p>
+  
+  <form method="POST" action="{% url 'make_admin'  %}">
+    {% csrf_token %}
+    {{form|crispy }}
+    <button class="mb-5" type="submit">Make Admin</button>
+  </form>
+{% endblock %}

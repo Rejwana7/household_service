@@ -1,0 +1,39 @@
+{%extends "base.html"%}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{%block content %}
+
+
+
+<div class="container">
+    <section class='vh-50'>
+        <div class="container py-5 h-50 ">
+            <div class="row d-flex align-items-center justify-content-center ">
+                <div class="col-md-8 col-lg-6 col-xl-5"> <!-- Adjusted column classes -->
+                    {% if 'login' in request.path %}
+                    <img src="{% static 'login.jpg'%}"  class="img-fluid w-75" alt="login">
+                    {% endif %}
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-5"> <!-- Adjusted column classes -->
+                    <h2 class="text-center fs-1 fst-italic fw-bold">{{type}}</h2>
+                    <form method="POST" class="">
+                        {% csrf_token %}
+                        <!-- 
+                        {{form | crispy }} -->
+                        {% for fm in form %}
+                        {{fm.label_tag}}
+                        {{fm}}
+                        {{fm.errors | striptags}}
+                        {% endfor %}
+                        <button class="btn btn-warning mb-3 mt-2 w-100">{{type}}</button>
+                    </form>
+                    <!-- Display register link when user is not registered -->
+                    <p class="text-center fs-5 ">Not registered yet? <a href="{% url 'register' %}">Register</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{%endblock%}

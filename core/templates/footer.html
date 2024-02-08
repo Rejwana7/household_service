@@ -1,0 +1,76 @@
+{% load static %} 
+<style>
+.foot-bg{
+    background-color:#010a35;
+}
+
+</style>   
+
+<!-- footer -->
+<footer class="footer foot-bg py-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                <div class="icon text-white footer-content">
+                    <h5>Follow us</h5>
+                    <div class="gap-5">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                </div>
+                <div class="icon mt-3 text-white">
+                    <h5>Address</h5>
+                    <div class="gap-5">
+                        <p>House 454, Road No: 31, Mohakhali DOHS, Dhaka</p>
+                    </div>
+                </div>
+                <div class="icon mt-3 text-white">
+                    <h5>Contact Us</h5>
+                    <div class="gap-5">
+                        <p>homeservice@gmail.com</p>
+                        <p>01712064957</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                <div class="icon text-white">
+                    <h5>Opening Hours</h5>
+                    <ul class="list-unstyled">
+                        <li>Sunday: 8:00 AM - 12:00 AM</li>
+                        <li>Monday: 8:00 AM - 12:00 AM</li>
+                        <li>Tuesday: 8:00 AM - 12:00 AM</li>
+                        <li>Wednesday: 8:00 AM - 12:00 AM</li>
+                        <li>Thursday: 8:00 AM - 12:00 AM</li>
+                        <li>Friday: 8:00 AM - 12:00 AM</li>
+                        <li>Saturday: 8:00 AM - 12:00 AM</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 text-white mb-4 mb-md-0">
+                <h4 class="fst-italic">Online Payment</h4>
+                <ul class="list-unstyled">
+                    <li class="list-group-item mt-2">Bkash</li>
+                    <li class="list-group-item mt-2">Nagad</li>
+                    <li class="list-group-item mt-2">Rocket</li>
+                    <li class="list-group-item mt-2">Bank</li>
+                    <li class="list-group-item mt-2">Card</li>
+                </ul>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="widget">
+                    <h5 class="widgetheading text-white">Quick Links</h5>
+                    <ul class="link-list">
+                        <li><a href="{% url 'homepage' %}" class="text-white" style="text-decoration: none;">Home</a></li>
+                        <li><a href="{% url 'all_services' %}" class="text-white" style="text-decoration: none;">Services</a></li>
+                        <li><a href="{% url 'about_us'%}" class="text-white" style="text-decoration: none;">About Us</a></li>
+                        <li><a href="{% url 'contact'%}" class="text-white" style="text-decoration: none;">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

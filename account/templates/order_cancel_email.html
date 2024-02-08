@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Cancel</title>
+</head>
+<body>
+    <p>Hello {{ order.user.username }},</p>
+    <p>We are pleased to inform you that your order with Order ID {{order.id }} has been Cancelled.</p>
+    
+    <h2>Order Details:</h2>
+    <ul>
+        <li>Service: {{ order.service.service_name }}</li>
+        <li>Quantity: {{ order.quantity }}</li>
+        <li>Total Amount: ${{ order.total_amount }}</li>
+       
+    </ul>
+
+   
+
+    <p>Thank you for choosing our services!</p>
+    <p>Best regards,</p>
+    <p>From,Home Services!</p>
+</body>
+</html>

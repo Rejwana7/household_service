@@ -1,0 +1,32 @@
+{%extends "base.html"%}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{%block content %}
+<h2 class="m-5">User Profile</h2>
+<div class="m-5">
+
+    {% if profile.profile_image%}
+    <img src="{{profile.profile_image.url}}" alt="Profile_image" class="w-25 img-thumbnail img-fluid">
+    {% else %}
+    <img src="{% static 'account/media/default.jpg'%}" alt="default_image" class="w-50 img-fluid">
+
+    {% endif%}
+    <h4> <strong>Username:</strong>{{profile.username}}</h4>
+    <h4> <strong>Full Name:</strong>{{profile.first_name}} {{profile.last_name}}</h4>
+    <h4> <strong>Email:</strong>{{profile.email}}</h4>
+    {% if profile.social_media_links %}
+    <strong>Social Media Link:</strong><a href="{{profile.social_media_links}}" class="m-1" target="_blank">
+        {{profile.social_media_links }}</a>
+    {% endif%}
+    <div class="mt-2">
+        <a href="{% url 'edit_pass' %}" class="btn btn-primary btn-outline-info text-white btn-md">Edit Password</a>
+    </div>
+    <div class="mt-2">
+        <a href="{% url 'profile_update' %}" class="btn btn-warning btn-outline-danger text-white btn-md">Edit
+            Profile</a>
+    </div>
+
+</div>
+{% endblock %}

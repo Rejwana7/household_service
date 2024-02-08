@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container my-5">
+
+    <div class="row">
+        {% if cart_data %}
+        <h1 class="text-center mb-5">Service Cart</h1>
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="">Cart</h3>
+                    {% for item in cart_data %}
+                    <div class="row ">
+                        <div class="col-sm-3 col-md-6 text-center align-self-center d-flex">
+                            <img src="{{item.service.image.url}}" class=" img-fluid">
+                        </div>
+                        <div class="col-sm-9 d-flex flex-column">
+                            <div>
+                                <h5 class="">{{item.service.service_name}}</h5>
+                                <p class="mb-2 ">{{item.service.description}}</p>
+                                <div class="my-3 d-flex align-items-center">
+                                    <label for="service_qty">Quantity:</label>
+
+                                    <form method="POST" action="{% url 'decrease_quantity' item.id %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="quantity-btn"><i class="fas fa-minus"></i></button>
+                                    </form>
+                                    <span id="service_qty">{{item.service_qty}}</span>
+                                    <form method="POST" action="{% url 'increase_quantity' item.id %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="quantity-btn"><i class="fas fa-plus"></i></button>
+                                    </form>
+
+                                </div>
+                                <!-- plus minus this div end -->
+                                <div class="d-flex flex-start">
+                                    <a href="{% url 'remove_cart' item.id %}"
+                                        class="remove-cart btn btn-sm btn-secondary mr-3" pid="{{item.service.id}}"> <i
+                                            class="fa fa-trash" aria-hidden="true"></i>Remove
+                                        Item</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="text-muted">
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- end -->
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3>The Total Amount of</h3>
+                    <ul class="list-group">
+                        <li
+                            class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                            Amount <span id="amount">Tk.{{amount}}</span></li>
+                        <li
+                            class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                            Total Amount <span id="totalamount"><strong>Tk.{{ totalamount }}</strong></span></li>
+                    </ul>
+
+
+                    <!-- modal -->
+
+                    <!-- Button trigger modal -->
+
+                    <div class="d-grid">
+                        <a href="" class="btn btn-outline-primary"data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">Place Order</a>
+                    </div>
+
+
+
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title fs-5" id="exampleModalLabel">Order Form</h5>
+
+                                    <hr>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="m-2 p-3">
+                                        <form action="{% url 'place_order'%}" method="POST">
+                                        {% csrf_token%}
+                                       <div class="form-group">
+                                        <label for="">Address</label>
+                                        <input type="text" name="address" class="form-control" id="" aria-describedby="helpId" placeholder="">
+                                      
+                                       </div>
+                                       <!-- address end -->
+                                       <div class="form-group">
+                                        <label for="">Phone</label>
+                                        <input type="text"  name="phone" class="form-control" id="" aria-describedby="helpId" placeholder="">
+                                      
+                                       </div>
+
+                                       <button type="submit" value="Place Order" class="btn btn-primary col-lg-6">Place Order</button>
+                                        </form>
+
+
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- model end -->
+
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+                <h1 class="text-center p-2">Cart is Empty</h1>
+                <p class="text-center">Your shopping cart is currently empty. Start adding items to your cart!</p>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <img src="{% static 'cart_empty.jpeg' %}" alt="Cart Empty" class="img-fluid">
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
