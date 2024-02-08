@@ -1,54 +1,55 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
 
-<div class="container container-fluid m-3 custom-min-vh">
+
+
+<!-- order history -->
+
+
+
+<div class="container container-fluid   custom-min-vh">
  
-    <h1>Order History</h1>
+    <h1 class="text-center">Order History</h1>
 
       {% if orders %}
+      <div class="table-responsive">
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">Service Image</th>
-            <th scope="col">Service Name</th>
-
-            <th scope="col"> Quantity</th>
-            <th scope="col">Total Amount</th>
-            <th scope="col">Status</th>
+            <tr>
+              <th scope="col">Service Image</th>
+              <th scope="col">Service Name</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total Amount</th>
+              <th scope="col">Status</th>
           </tr>
         </thead>
         <tbody>
             {% for order in orders%}
           <tr>
-           
             <td><img src="{{ order.service.image.url }}" alt="{{ order.service.service_name }}" class="img-fluid w-25"></td>
-            <td>{{order.service.service_name}}</td>
-            <td>{{order.quantity}}</td>
-            <td>{{order.total_amount}}</td>
+            <td>{{ order.service.service_name }}</td>
+            <td>{{ order.quantity }}</td>
+            <td>{{ order.total_amount }}</td>
             <td>
-              {% if order.status == 'PENDING'%}
-              <span class="badge text-bg-danger badge-success">{{ order.status }}</span>
-              {% elif order.status == 'APPROVED'%}
-              <span class="badge text-bg-success badge-info">{{ order.status }}</span>
-              {% elif order.status == 'CANCELLED' %}
-              <span class="badge text-bg-secondary badge-primary">{{ order.status }}</span>
-             
-          {% endif %}
-         
+                {% if order.status == 'PENDING' %}
+                <span class="badge text-bg-danger badge-success">{{ order.status }}</span>
+                {% elif order.status == 'APPROVED' %}
+                <span class="badge text-bg-success badge-info">{{ order.status }}</span>
+                {% elif order.status == 'CANCELLED' %}
+                <span class="badge text-bg-secondary badge-primary">{{ order.status }}</span>
+                {% endif %}
             </td>
-          </tr>
-         
-          {% endfor %}
-        </tbody>
-      </table>
-      <p><strong>Grand Total</strong>Tk.{{grand_total}}</p>
-
-   
-
-    {% else %}
-    <p class="text-center">No orders found.</p>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+<p><strong>Grand Total</strong> Tk.{{ grand_total }}</p>
+{% else %}
+<p class="text-center">No orders found.</p>
 {% endif %}
 </div>    
 
@@ -56,3 +57,19 @@
 
 
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>{{ category.name }} Services</h2>
-  <div class="row container container-fluid">
+  <h2 class="text-center">{{ category.name }} Services</h2>
+  <div class="row container container-fluid ">
     {% for service in services %}
-      <div class="col-md-4 mb-4">
+      <div class="col-md-4 mb-4 mt-2">
         <div class="card h-100">
           <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.service_name }}">
           <div class="card-body">

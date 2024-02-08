@@ -36,12 +36,7 @@
     {% include 'navbar.html' %}
     
 
-    {% for i in messages %}
-    <div>
-      <h3 class="text-{{i.tags}}">{{i}}</h3>
-    </div>
-
-    {% endfor %} 
+    {% include 'alert.html' %}
 
 
    <div class="custom-min-vh">

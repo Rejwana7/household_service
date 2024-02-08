@@ -1,13 +1,16 @@
 {% extends 'base.html'%}
 {% load static %}
 
+
+
 {% block content %}
 
-<div class="container m-5">
+<div class="container container-fluid   custom-min-vh">
  
-    <h1>Order History</h1>
+    <h1 class="text-center">All Order</h1>
 
       {% if all_orders %}
+      <div class="table-responsive">
       <table class="table">
         <thead>
           <tr>
@@ -34,17 +37,17 @@
              <form method="POST" action="{% url 'approve_order' order.id%}" >
               {% csrf_token%}
               {% if order.status == 'PENDING' %}
-              <button type="submit">Approve</button>
+              <button type="submit" class=" btn btn-success">Approve</button>
               {% elif order.status == 'APPROVED' %}
-              <button type="button" disabled>Approved</button>
+              <button type="button" class="btn btn-success" disabled>Approved</button>
               {% elif order.status == 'CANCELLED' %}
-               <button type="submit">Re-Approve</button>
+               <button type="submit"  class=" btn btn-info btn-sm ">Re-Approve</button>
                {% endif %}
              </form>
              {% if order.status == 'PENDING' %}
              <form method="POST" action="{% url 'cancel_order' order.id%}" class="mt-2">
               {% csrf_token%}
-              <button type="submit">Cancel</button>
+              <button type="submit"  class="btn btn-danger">Cancel</button>
              {% endif %}
              </form>
          
@@ -55,7 +58,7 @@
         </tbody>
       </table>
     
-   
+    </div>
 
     {% else %}
     <p class="text-center">No orders found.</p>
@@ -66,3 +69,6 @@
 
 
 {% endblock %}
+
+
+

@@ -52,15 +52,22 @@
     </button>
 </div>
 
-<div class="container mt-4">
-    <h3 class="text-center fs-3 fst-italic text-uppercase">Our Services</h3>
-    <div class="row">
-        <div class="col-lg-6 col-md-6">
-            {% for cat in category %}
-            <a href="{% url 'category_wise_service' cat.slug %}" class="btn btn-outline-warning btn-danger btn-sm bt">{{cat.name}}</a>
-            {% endfor %}
+
+
+    <div class="container mt-4">
+        <h3 class="text-center fs-3 fst-italic text-uppercase">Our Services</h3>
+        <div class="row justify-content-center"> <!-- Center content in large screens -->
+            <div class="col-lg-8 col-md-10"> <!-- Adjust column width based on your preference -->
+                <div class="row row-cols-2 row-cols-md-4 g-2 g-md-3 justify-content-center">
+                    {% for cat in category %}
+                    <div class="col mb-2">
+                        <a href="{% url 'category_wise_service' cat.slug %}" class="btn btn-outline-warning btn-danger btn-sm bt d-flex align-items-center justify-content-center p-2">{{cat.name}}</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
-    </div>
+
 
     <div class="col-lg-12 col-md-8 p-3">
         <h4>{{data | length}} results found</h4>

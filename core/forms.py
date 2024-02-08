@@ -16,5 +16,6 @@ class ContactForm(forms.ModelForm):
                                             'style': 'border-radius: 16px; border: 1px solid black;'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 
                                               'style': 'border-radius: 16px; border: 1px solid black;'}),
-          
+             'message': forms.Textarea(attrs={'class': 'form-control', 
+                                              'style': 'border-radius: 16px; border: 1px solid black;'}),
         }

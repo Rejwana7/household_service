@@ -17,56 +17,24 @@
     .form-control {
     border-radius: 6px;
 }
-    
+
+  
 </style> 
 <!-- custom css -->
 <link rel="stylesheet" href="{% static 'contact.css' %}"/>   
 {% block content%}
 
 <!-- Carousel Start -->
-<div id="carouselExampleDark" class="carousel carousel-dark slide">
-    <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="10000">
-            <img src="{% static '1.jpg'%}" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-flex align-items-center justify-content-center ">
-                <div class="text-center text-md-start text-lg-center mt-5" style="width: 100%; max-width: 1000px;">
-                    <h5 class="text-primary text-uppercase fw-bold mb-md-3 ">Home SERVICES</h5>
-                    <h1 class="mb-md-3">Highly Professional Home Services</h1>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="2000">
-            <img src="{% static '2.jpg'%}" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-flex align-items-center justify-content-center">
-                <div class="text-center text-md-center text-lg-center" style="width: 100%; max-width: 1000px;">
-                    <h5 class="text-primary text-uppercase mb-md-3 mt-lg-5 fw-bold">Cleaning SERVICES</h5>
-                    <h1 class=" mb-md-3">Highly Professional Painting Services</h1>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="{% static '3.jpg'%}" class="d-block w-100" alt="...">
+<div class="bgImage">
+    <img style="width:100%; height:100vh;background-size: cover; background-repeat: no-repeat;background-position: center bottom; opacity: 0.5;"
+        src="{% static 'service-3.jpg'%}">
+        <div class="content">
 
-            <div class="carousel-caption d-flex align-items-center justify-content-center">
-                <div class="text-center text-md-start text-lg-center" style="width: 100%; max-width: 1000px;">
-                    <h5 class="text-primary text-uppercase mb-md-3 mt-lg-5 fw-bold">AFFORDABLE SERVICES </h5>
-                    <h1 class="mb-md-3">Highly Professional Cleaning Services</h1>
-                  
-                </div>
-            </div>
+            <h5 class="text-dark text-uppercase fw-bold fs-2">Contact Us</h5>
         </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
 </div>
+
+
 
     <!-- Carousel End -->
 
@@ -74,7 +42,8 @@
     
             <div class="col-lg-6 m-5">
                 <h5 class="text-secondary font-weight-semi-bold text-uppercase mb-3 mt-3">Contact Us</h5>
-                <h1 class="section-title mb-3">Contact Us For Home Services</h1>
+               
+                <h1 class="section-title mb-3" style="font-size: calc(1.375rem + 1.5vw);">If You Have Any Query, Please Contact Us</h1>
             </div>
             
             <form method="POST" class="w-75 mx-auto m-5"  enctype="multipart/form-data" novalidate >

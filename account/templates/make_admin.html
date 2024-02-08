@@ -4,7 +4,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-  <h2>Make User Admin</h2>
+  <h2 class="text-center">Make User Admin</h2>
   <p>Username: {{ user.username }}</p>
   
   <form method="POST" action="{% url 'make_admin'  %}">

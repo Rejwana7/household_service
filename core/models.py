@@ -5,4 +5,4 @@ from account.models import ClientAccount
 class ContactUs(models.Model):
     name=models.CharField(max_length=200)
     email=models.EmailField()
-    subject=models.TextField()
+    message=models.TextField(blank=True)
