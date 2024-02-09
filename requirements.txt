@@ -1,9 +1,6 @@
 asgiref
 crispy-bootstrap5
 dj-database-url
-asgiref
-crispy-bootstrap5
-dj-database-url
 Django
 django-braces
 django-crispy-forms
@@ -14,6 +11,7 @@ django-star-ratings
 django-static-jquery
 pillow
 psycopg2
+psycopg2-binary
 sqlparse
 swapper
 typing_extensions
