@@ -3,7 +3,20 @@
 
 {% block content %}
 
+<style>
+  /* CSS to set fixed font size for table */
+ 
+  .table th {
+     
+     font-size: 13px;
+  }
 
+  @media screen and (max-width: 768px) {
+        .table th{
+            font-size: 10px; /* Adjust font size for medium screens */
+        }
+    }
+</style>
 
 <!-- order history -->
 
@@ -19,17 +32,17 @@
         <thead>
           <tr>
             <tr>
-              <th scope="col">Service Image</th>
-              <th scope="col">Service Name</th>
+              <th scope="col" >Service Image</th>
+              <th scope="col" >Service Name</th>
               <th scope="col">Quantity</th>
-              <th scope="col">Total Amount</th>
+              <th scope="col" >Amount</th>
               <th scope="col">Status</th>
           </tr>
         </thead>
         <tbody>
             {% for order in orders%}
           <tr>
-            <td><img src="{{ order.service.image.url }}" alt="{{ order.service.service_name }}" class="img-fluid w-25"></td>
+            <td><img src="{{ order.service.image.url }}" height="100" width="100" alt="{{ order.service.service_name }}" class="img-fluid"></td>
             <td>{{ order.service.service_name }}</td>
             <td>{{ order.quantity }}</td>
             <td>{{ order.total_amount }}</td>

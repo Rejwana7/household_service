@@ -2,31 +2,30 @@
 
 {% block content %}
 
-
+<style>
+.custom-btn3{
+  background-color: #003366; 
+}
+</style>
   <h2 class="text-center">All Services</h2>
-  <div class="row container container-fluid ">
+  <div class="row container-fluid">
     {% for service in services %}
-      <div class="col-md-4 mb-4 mt-2">
+      <div class="col-md-4 mb-4">
         <div class="card h-100">
           <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.service_name }}">
-          <div class="card-body">
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ service.service_name }}</h5>
             <p class="card-text">{{ service.description }}</p>
             <p class="card-text">Original Price: ${{ service.original_price }}</p>
             <p class="card-text">Selling Price: ${{ service.selling_price }}</p>
-           
-
             <!-- Add to Cart Button -->
-            <form method="post" action="{% url 'add_to_cart' service.id %}">
+            <form method="post" action="{% url 'add_to_cart' service.id %}" class="mt-auto">
               {% csrf_token %}
-              <button type="submit" class="btn btn-primary">Add to Cart</button>
+              <button type="submit" class="btn btn-primary custom-btn3">Add to Cart</button>
             </form>
           </div>
         </div>
       </div>
     {% endfor %}
   </div>
-
-  
-  
 {% endblock %}

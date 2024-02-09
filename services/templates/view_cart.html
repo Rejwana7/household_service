@@ -25,19 +25,19 @@
 
                                     <form method="POST" action="{% url 'decrease_quantity' item.id %}">
                                         {% csrf_token %}
-                                        <button type="submit" class="quantity-btn"><i class="fas fa-minus"></i></button>
+                                        <button type="submit" class="quantity-btn btn btn-primary btn-sm"><i class="fas fa-minus"></i></button>
                                     </form>
                                     <span id="service_qty">{{item.service_qty}}</span>
                                     <form method="POST" action="{% url 'increase_quantity' item.id %}">
                                         {% csrf_token %}
-                                        <button type="submit" class="quantity-btn"><i class="fas fa-plus"></i></button>
+                                        <button type="submit" class="quantity-btn btn btn-primary btn-sm"><i class="fas fa-plus"></i></button>
                                     </form>
 
                                 </div>
                                 <!-- plus minus this div end -->
                                 <div class="d-flex flex-start">
                                     <a href="{% url 'remove_cart' item.id %}"
-                                        class="remove-cart btn btn-sm btn-secondary mr-3" pid="{{item.service.id}}"> <i
+                                        class="remove-cart btn btn-sm btn-danger mr-3" pid="{{item.service.id}}"> <i
                                             class="fa fa-trash" aria-hidden="true"></i>Remove
                                         Item</a>
                                 </div>

@@ -4,13 +4,40 @@
 
 
 {% block content %}
+<style>
+  /* CSS to set fixed font size for table */
+  .table th {
+      font-size: 13px;
+  }
+
+  /* Prevent wrapping for service name */
+  .service-name {
+      white-space: nowrap;
+  }
+
+  @media screen and (max-width: 768px) {
+      /* Adjust font size for medium screens */
+      .table th {
+          font-size: 9px;
+      }
+
+      .service-name{
+        font-size: 12px;
+      }
+  }
+
+  </style>
+
+
+
+
 
 <div class="container container-fluid   custom-min-vh">
  
     <h1 class="text-center">All Order</h1>
 
       {% if all_orders %}
-      <div class="table-responsive">
+     
       <table class="table">
         <thead>
           <tr>
@@ -19,7 +46,7 @@
             <th scope="col">Service Name</th>
 
             <th scope="col"> Quantity</th>
-            <th scope="col">Total Amount</th>
+            <th scope="col">Amount</th>
             <th scope="col">Status</th>
             <th scope="col">Action</th>
           </tr>
@@ -28,8 +55,8 @@
             {% for order in all_orders%}
           <tr>
            <td>{{order.user.username}}</td>
-            <td><img src="{{ order.service.image.url }}" alt="{{ order.service.service_name }}" class="img-fluid w-25"></td>
-            <td>{{order.service.service_name}}</td>
+            <td><img src="{{ order.service.image.url }}" height="150" width="150" alt="{{ order.service.service_name }}" class="img-fluid "></td>
+            <td class="service-name">{{order.service.service_name}}</td>
             <td>{{order.quantity}}</td>
             <td>{{order.total_amount}}</td>
             <td>{{order.status}}</td>
@@ -58,7 +85,7 @@
         </tbody>
       </table>
     
-    </div>
+   
 
     {% else %}
     <p class="text-center">No orders found.</p>
