@@ -23,6 +23,7 @@
     margin: 0;
     padding: 0.3rem .2rem;
     cursor: pointer;
+   
 }
 
 /* half star */
@@ -44,17 +45,14 @@ label:hover ~ input:checked ~ label{
     color:#cc9000;
 }
 
-/* .rating-star i{
-    color:#ffb503!important;
 
-} */
-.rating-star {
-    color: #ccc; /* Default star color */
+
+.rating-star .fa-star{
+    color:gray
 }
-
 .rating-star .fa-star {
-    color: #ffb503; 
-    padding: 0; /* Remove padding for stars */
+    color:#ffb503; 
+    padding: 0; 
 }
 
 .rating-star .filled {
@@ -63,6 +61,7 @@ label:hover ~ input:checked ~ label{
 .rating-star .fa-star-half-o {
     color:#ffb503; /* Yellow color for half-filled stars */
 }
+
 .profile-image{
     width:100px;
 }
