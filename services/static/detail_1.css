@@ -1,0 +1,68 @@
+/* star */
+.rate>input {
+    display: none;
+}
+
+.rate {
+    display: inline-block;
+    border: 0;
+}
+
+.rate>label {
+    float: right;
+}
+
+
+
+ /* showing stars   */
+.rate > label:before {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-family: FontAwesome;
+    content: "\f005";
+    margin: 0;
+    padding: 0.3rem .2rem;
+    cursor: pointer;
+}
+
+/* half star */
+.rate .half:before{
+    content:"\f089";
+    position:absolute;
+    padding-right: 0;
+
+}
+
+/* click and hover */
+input:checked~label,label:hover ~label{
+    color:#ffb503;
+}
+
+/* hover highlight */
+input:checked + label:hover,input:checked ~ label:hover ~label,
+label:hover ~ input:checked ~ label{
+    color:#cc9000;
+}
+
+/* .rating-star i{
+    color:#ffb503!important;
+
+} */
+.rating-star {
+    color: #ccc; /* Default star color */
+}
+
+.rating-star .fa-star {
+    color: #ffb503; 
+    padding: 0; /* Remove padding for stars */
+}
+
+.rating-star .filled {
+    color:#ffb503; /* Yellow color for filled stars */
+}
+.rating-star .fa-star-half-o {
+    color:#ffb503; /* Yellow color for half-filled stars */
+}
+.profile-image{
+    width:100px;
+}

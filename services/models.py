@@ -36,7 +36,7 @@ class Service(models.Model):
         count = 0
         if reviews['count']  is not None:
             count= int(reviews['count'])
-            return count    
+        return count    
 class Cart(models.Model):
     user=models.ForeignKey(ClientAccount,on_delete=models.CASCADE)
     service= models.ForeignKey(Service,on_delete=models.CASCADE, related_name = 'service')

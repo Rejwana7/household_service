@@ -120,7 +120,7 @@ def Submit_review(request,id):
         'service': service,
         'form': form,
     }
-    return render(request, 'detail.html', context)
+    return render(request, 'detail_2.html', context)
 
 
 # def Update_review(request,id):
