@@ -114,7 +114,7 @@ def Submit_review(request,id):
         data.rating=rating
         data.save()
         messages.success(request, 'Thank you! Your review has been submitted.')
-        return redirect("homepage")
+        return redirect("service_detail",id=id)
 
     context = {
         'service': service,
