@@ -71,7 +71,7 @@ def service_detail(request,id):
         'service':service,
         'reviews':reviews,
     }
-    return render(request,'detail.html',context)
+    return render(request,'detail_2.html',context)
 
 
 # def Submit_review(request,id):

@@ -30,7 +30,8 @@ class Service(models.Model):
         avg = 0
         if reviews['average']  is not None:
             avg= float(reviews['average'])
-            return avg  
+            print(avg)
+        return avg  
     def CountReview(self):
         reviews= ReviewRating.objects.filter(service=self,status=True).aggregate(count=Count('id'))
         count = 0
