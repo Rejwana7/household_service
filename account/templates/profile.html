@@ -10,7 +10,7 @@
     {% if profile.profile_image%}
     <img src="{{profile.profile_image.url}}" alt="Profile_image" class="w-25 img-thumbnail img-fluid">
     {% else %}
-    <img src="{% static 'media/uploads/default.jpg'%}" alt="default_image" class="w-50 img-fluid">
+    <img src="{% static 'account/image/default.jpg'%}" alt="default_image" class="w-50 img-fluid">
 
     {% endif%}
     <h4> <strong>Username:</strong>{{profile.username}}</h4>
