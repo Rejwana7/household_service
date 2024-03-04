@@ -6,7 +6,7 @@ from django.db.models import Avg,Count
 
 # Create your models here.
 class  ClientAccount(AbstractUser):
-    profile_image=models.ImageField(default='account/media/uploads/default.jpg',upload_to='account/media/uploads',null=True)
+    profile_image=models.ImageField(default='media/uploads/default.jpg',upload_to='account/media/uploads',null=True)
     birth_date = models.DateField(null=True, blank=True)
     gender = models.CharField(max_length=10, choices=GENDER_TYPE)
     social_media_links= models.URLField(max_length=250,null=True,blank=True)
